@@ -1,0 +1,17 @@
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/repositories/FacturaRepository.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/models/Producto.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/controllers/ClienteController.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/controllers/FacturaController.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/dto/AsignacionDeFacturaAClienteDTO.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/repositories/ProductoRepository.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/interfaces/CRUDInterface.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/repositories/ClienteRepository.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/models/Factura.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/controllers/ProductoController.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/responses/ErrorResponse.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/FactuacionSegundaEntregaCookApplication.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/dto/AsociacionClienteProductoDTO.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/services/FacturaService.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/services/ClienteService.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/models/Cliente.java
+/Users/carolina/Projects/JAVA/FactuacionSegundaEntrega_Cook/src/main/java/com/coderhouse/services/ProductoService.java
