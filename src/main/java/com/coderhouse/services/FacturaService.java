@@ -19,6 +19,7 @@ import com.coderhouse.models.Producto;
 import com.coderhouse.repositories.ClienteRepository;
 import com.coderhouse.repositories.FacturaRepository;
 import com.coderhouse.repositories.ProductoRepository;
+import lombok.*;
 
 import jakarta.transaction.Transactional;
 

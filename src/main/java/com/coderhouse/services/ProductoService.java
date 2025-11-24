@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.coderhouse.interfaces.CRUDInterface;
 import com.coderhouse.models.Producto;
 import com.coderhouse.repositories.ProductoRepository;
+import lombok.*;
 
 import jakarta.transaction.Transactional;
 
