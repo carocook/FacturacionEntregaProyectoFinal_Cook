@@ -7,7 +7,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FacturaRequestDTO {
-    private String numero;
-    private Long clienteId;
-    private List<ItemFacturaDTO> items;
+    private ClienteDTO cliente;
+    private List<ItemFacturaDTO> lineas;
 }

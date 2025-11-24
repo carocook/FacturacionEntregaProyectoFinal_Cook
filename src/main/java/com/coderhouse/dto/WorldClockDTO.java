@@ -5,7 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ItemFacturaDTO {
-    private ProductoDTO producto;;
-    private int cantidad;
+public class WorldClockDTO {
+    private String currentDateTime;
 }

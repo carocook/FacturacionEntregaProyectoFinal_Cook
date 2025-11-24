@@ -2,14 +2,15 @@ package com.coderhouse.controllers;
 
 import java.util.List;
 
+import com.coderhouse.dto.FacturaReadDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.coderhouse.dto.FacturaRequestDTO;
+import com.coderhouse.dto.FacturaResponseDTO;
 import com.coderhouse.models.Factura;
-import com.coderhouse.responses.ErrorResponse;
 import com.coderhouse.services.FacturaService;
 
 @RestController
@@ -20,39 +21,37 @@ public class FacturaController {
     private FacturaService svc;
 
     @GetMapping
-    public ResponseEntity<List<Factura>> getAllFacturas() {
+    public ResponseEntity<List<FacturaReadDTO>> getAllFacturas() {
         try {
-            return ResponseEntity.ok(svc.findAll());
+            return ResponseEntity.ok(svc.findAllFacturasDTO());
         } catch (Exception e) {
+            System.err.println("Error al listar facturas: " + e.getMessage());
             return ResponseEntity.internalServerError().build();
         }
     }
 
-    @GetMapping("/{facturaId}")
-    public ResponseEntity<Factura> getFacturasById(@PathVariable Long facturaId) {
-        try {
-            return ResponseEntity.ok(svc.findById(facturaId));
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.notFound().build();
-        } catch (Exception e) {
-            return ResponseEntity.internalServerError().build();
-        }
-    }
+  @PostMapping("/create")
+    public ResponseEntity<FacturaResponseDTO> createFactura(
+            @RequestBody FacturaRequestDTO facturaDTO) {
 
-    @PostMapping("/create")
-    public ResponseEntity<?> createFactura(@RequestBody FacturaRequestDTO facturaDTO) {
         try {
-            Factura facturaCreada = svc.createFactura(facturaDTO);
-            return ResponseEntity.status(HttpStatus.CREATED).body(facturaCreada);
+            FacturaResponseDTO responseDTO = svc.createFactura(facturaDTO);
+            return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
+
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(new ErrorResponse("Datos inválidos", e.getMessage()));
+            FacturaResponseDTO errorResponse = new FacturaResponseDTO();
+            errorResponse.setMensaje("ERROR - Dato no encontrado: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+
         } catch (IllegalStateException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(new ErrorResponse("Conflicto", e.getMessage()));
+            FacturaResponseDTO errorResponse = new FacturaResponseDTO();
+            errorResponse.setMensaje(e.getMessage());
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
+
         } catch (Exception e) {
-            return ResponseEntity.internalServerError()
-                    .body(new ErrorResponse("Error interno", e.getMessage()));
+            FacturaResponseDTO errorResponse = new FacturaResponseDTO();
+            errorResponse.setMensaje("ERROR INTERNO DEL SERVIDOR: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }
 
